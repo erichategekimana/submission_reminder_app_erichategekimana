@@ -9,6 +9,7 @@ echo " "
 echo "Welcome to the Submission reminder App!"
 echo "This is going to create a directory structure"
 echo "that will be used by application."
+echo " "
 
 # this block of code, prompting a user to enter name and use it to create directory named "submission_reminder_{name} and if name is arleady exist, it will print error message, and ask him agin
 while true; do
@@ -25,13 +26,14 @@ done
 
 
 
-
+echo "$parent_dir created successfully"
 # this will create subdirectories inside $parent_dir
-
+echo "Creatin sudirectories..."
 mkdir -p "$parent_dir"/{app,modules,asset,config}
-
+echo "Subdirectories successful created"
 
 # heredoc(here document) to create a file named "reminder.sh" and append scripts text onto it immediatery
+echo "creating application files and libraries..."
 cat << 'EOF' > "$parent_dir/app/reminder.sh"
 #!/bin/bash
 
@@ -93,10 +95,10 @@ ASSIGNMENT="Shell Navigation"
 DAYS_REMAINING=2
 EOF
 
-
+echo "Files created successful!"
 
 # check if we have file named "startup.sh". if it is not present, then create it and add its scripts
-if [[ ! -f "startup.sh" ]]; then # this line means " if there's no file called '$parent_dir/starup.sh'"
+if [[ ! -f "$parent_dir/startup.sh" ]]; then # this line means " if there's no file called '$parent_dir/starup.sh'"
 	cat << 'EOF' > "$parent_dir/startup.sh"
 #!/usr/bin/env bash
 
