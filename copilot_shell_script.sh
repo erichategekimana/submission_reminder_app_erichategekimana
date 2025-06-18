@@ -1,4 +1,9 @@
 #!/usr/bin/env bash
-read -r "What is your assignment name?: " new_var
 
-sed -i "s/ASSIGNMENT="Shell Navigation"/ASSIGNMENT=$("$new_var")" "$parent_dir"/config/config.en
+root_dir=$(find . -maxdepth 1 -type d -name "submission_reminder_*" | head -n 1)
+
+read -rp "Enter the assignment name: " new_var
+
+sed -i "2s|.*|ASSIGNMENT=\"$new_var\"|" "$root_dir/config/config.env"
+
+(cd "$root_dir" && ./startup.sh)
