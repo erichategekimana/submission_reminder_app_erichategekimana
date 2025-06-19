@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
-# this script will create environment for program that  will be used for reminding students for their assignments
-
-
-
+# this script will create environment for program that  will be used for reminding students their assignments deadlines
 
 
 echo " "
@@ -11,20 +8,34 @@ echo "This is going to create a directory structure"
 echo "that will be used by application."
 echo " "
 
-# this block of code, prompting a user to enter name and use it to create directory named "submission_reminder_{name} and if name is arleady exist, it will print error message, and ask him agin
+# this block of code, prompting a user to enter name and use it to create directory named "submission_reminder_{name} and if name is arleady exist, it will print error message, and ask him again
 while true; do
-	read -rp "Enter your name: " usrname
+
+	while true; do
+		read -rp "Enter your first name: " usrname
+		if [[ -z "$usrname" ]]; then
+			sleep 0.2
+			echo " "
+			echo "Error: Name field can not be empty!"
+			echo "Please, enter a valid name (e.g: John)"
+			echo " "
+		else
+			break
+		fi
+	done	
+
 	if [[ ! -d "submission_reminder_$usrname" ]]; then
 		parent_dir="submission_reminder_$usrname"
 		break
 	else
+		sleep 0.2
 		echo "'$usrname' is arleady taken!"
 		echo "Try different one."
 		echo " "
 	fi
 done
 
-
+sleep 0.3
 echo " "
 echo "$parent_dir created successfully"
 # this will create subdirectories inside $parent_dir
@@ -125,6 +136,7 @@ sleep 0.4
 echo " "
 echo "Environment setup successful completed"
 TIMESTAMP=$(date +'%Y-%m-%d_%H-%M-%S')
+sleep 0.3
 echo "Done at $TIMESTAMP"
 echo " "
 echo " "
