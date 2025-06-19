@@ -42,7 +42,7 @@ echo "$parent_dir created successfully"
 # this will create subdirectories inside $parent_dir
 echo "Creating subdirectories..."
 sleep 1
-mkdir -p "$parent_dir"/{app,modules,asset,config}
+mkdir -p "$parent_dir"/{app,modules,assets,config}
 echo "Subdirectories successful created"
 
 # heredoc(here document) to create a file named "reminder.sh" and append scripts text onto it immediatery
@@ -52,7 +52,7 @@ sleep 3
 
 
 cat << 'EOF' > "$parent_dir/app/reminder.sh"
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Source environment variables and helper functions
 source ./config/config.env
@@ -62,11 +62,12 @@ source ./modules/functions.sh
 submissions_file="./assets/submissions.txt"
 
 # Print remaining time and run the reminder function
+echo ""
 echo "Assignment: $ASSIGNMENT"
 echo "Days remaining to submit: $DAYS_REMAINING days"
 echo "--------------------------------------------"
 
-check_submissions=$submissions_file
+check_submissions $submissions_file
 EOF
 
 
@@ -77,10 +78,16 @@ cat << 'EOF' > "$parent_dir/modules/functions.sh"
 # Function to read submissions file and output students who have not submitted
 function check_submissions {
     local submissions_file=$1
+    echo ""
     echo "Checking submissions in $submissions_file"
 
+    echo ""
+
+    printf "%-15s %-20s %-20s\n" "student" "assignment" "submission status"
+    echo "---------------------------------------------------------------"
+
     # Skip the header and iterate through the lines
-    while IFS=, read -r student assignment status; do
+    tail -n +2 "$submissions_file" | while IFS=, read -r student assignment status; do
         # Remove leading and trailing whitespace
         student=$(echo "$student" | xargs)
         assignment=$(echo "$assignment" | xargs)
@@ -88,20 +95,26 @@ function check_submissions {
 
         # Check if assignment matches and status is 'not submitted'
         if [[ "$assignment" == "$ASSIGNMENT" && "$status" == "not submitted" ]]; then
-            echo "Reminder: $student has not submitted the $ASSIGNMENT assignment!"
+            #echo "Reminder: $student has not submitted the $ASSIGNMENT assignment!"
+            printf "%-15s %-20s %-20s\n" "$student" "$assignment" "$status"
         fi
-    done < <(tail -n +2 "$submissions_file") # Skip the header
+    done # < <(tail -n +2 "$submissions_file") # Skip the header
+    echo ""
+    echo ""
 }
 EOF
 
 
 # heredoc(here document) to create a file named "submission.txt" and append same text onto it immediatery
-cat << 'EOF' > "$parent_dir/asset/submissions.txt"
+cat << 'EOF' > "$parent_dir/assets/submissions.txt"
 student, assignment, submission status
 Chinemerem, Shell Navigation, not submitted
 Chiagoziem, Git, submitted
 Divine, Shell Navigation, not submitted
 Anissa, Shell Basics, submitted
+Eric, Git, Submitted
+Kenia, Shell Basics, not submitted
+Marvin, Git, Not submitteg
 EOF
 
 

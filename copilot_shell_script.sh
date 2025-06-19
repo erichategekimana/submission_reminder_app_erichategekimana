@@ -6,16 +6,18 @@ echo "Welcome to the copilot!"
 echo "Please, make sure that you've created account before you procced"
 echo ""
 QUIT="q"
-COUNTER=0
 while true; do
 	while true; do
 
 		read -rp "What is your user name: " username
 		if [[ -z "$username" ]]; then
+			sleep 0.5
+			echo ""
 			sleep 0.2
 			echo "Error: Invalid input!"
 			echo "Please, use valid name (e.g: john)"
 			echo "or use 'q' to exit the program"
+			echo ""
 		elif [[ "$username" == "$QUIT" ]]; then
                 	echo " "
                 	sleep 0.5
@@ -28,8 +30,11 @@ while true; do
 
 
 	if [[ ! -d "submission_reminder_$username" ]]; then
+		echo ""
+		sleep 0.5
 		echo "User '$username'not found"
-		echo "Try again or type 'q' to exit the program"
+		echo "Please create your account first using 'create_environment.sh'"
+		echo "Or type 'q' to exit the program"
 		echo ""
 	elif [[ "$username" == "$QUIT" ]]; then
         	echo " "
