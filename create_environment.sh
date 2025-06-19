@@ -121,6 +121,8 @@ Michelle, Introduction To Linux, Not submitted
 Ogba, Intriduction To Linux, Not submitted
 Simeon, Shell Permission Control, Not submitted
 Simeon, Git, Not submitted
+Simeon, Shell Navigation, Not submitted
+Benjamin, Shell Navigation, Not submitted
 Daniel, Shell Permission Control, submitted
 EOF
 

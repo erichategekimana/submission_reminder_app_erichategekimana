@@ -56,7 +56,7 @@ root_dir=$(find . -maxdepth 1 -type d -name "submission_reminder_*" | head -n 1)
 
 
 echo "Assignment list:"
-echo "1. shell Navigation"
+echo "1. Shell Navigation"
 echo "2. Shell Basics"
 echo "3. Git"
 echo "4. Introduction To Linux"
