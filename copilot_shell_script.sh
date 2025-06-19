@@ -3,7 +3,9 @@
 
 echo ""
 echo "Welcome to the copilot!"
-echo "Please, make sure that you've created account before you procced"
+echo "Please, make sure that you've created account before you proceed"
+echo "The name used to create application environment"
+echo "is your user name."
 echo ""
 QUIT="q"
 while true; do
@@ -33,8 +35,10 @@ while true; do
 		echo ""
 		sleep 0.5
 		echo "User '$username'not found"
+		echo "User name, is a name used when you created application environment."
 		echo "Please create your account first using 'create_environment.sh'"
-		echo "Or type 'q' to exit the program"
+		echo ""
+		echo "Try again Or type 'q' to exit the program"
 		echo ""
 	elif [[ "$username" == "$QUIT" ]]; then
         	echo " "
@@ -50,6 +54,15 @@ done
 # find parent directory of our targeted files and program
 root_dir=$(find . -maxdepth 1 -type d -name "submission_reminder_*" | head -n 1)
 
+
+echo "Assignment list:"
+echo "1. shell Navigation"
+echo "2. Shell Basics"
+echo "3. Git"
+echo "4. Introduction To Linux"
+echo "5. Shell Permission Control"
+
+
 # prompt user for input, check if it is not empty or if it is 'q' so that program will exit
 while true; do
 	echo " "
@@ -58,7 +71,7 @@ while true; do
 		sleep 0.2
 		echo " "
 		echo "Error: Invald input!"
-		echo "Please, use valid name (e.g: introduction to linux)"
+		echo "Please, use valid name (e.g: Introduction To Linux)"
 		echo "Use 'q' to exit the program"
 		sleep 0.2
 	elif [[ "$new_var" == "$QUIT" ]]; then
@@ -66,8 +79,22 @@ while true; do
 		sleep 0.5
 		echo "Aborted by the user "
 		exit 1
-	else
+	elif [[ "$new_var" == "Shell Navigation" ]]; then
 		break
+	elif [[ "$new_var" == "Shell Basics" ]]; then
+                break
+	 elif [[ "$new_var" == "Git" ]]; then
+                break
+	 elif [[ "$new_var" == "Introduction To Linux" ]]; then
+                break
+	 elif [[ "$new_var" == "Shell Permission Control" ]]; then
+                break
+	else
+		echo "Assignment '$new_var' not found. Try again"
+		echo "Please, use the list provided to navigate valid assignment name."
+		echo "or use 'q' to exit the program"
+		echo ""
+		echo "Note: This application is case sensitive!"
 	fi
 done
 echo ""

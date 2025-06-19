@@ -115,6 +115,13 @@ Anissa, Shell Basics, submitted
 Eric, Git, Submitted
 Kenia, Shell Basics, not submitted
 Marvin, Git, Not submitteg
+Mugisha, Git, Not submitted
+Paul, Git, Not submitted
+Michelle, Introduction To Linux, Not submitted
+Ogba, Intriduction To Linux, Not submitted
+Simeon, Shell Permission Control, Not submitted
+Simeon, Git, Not submitted
+Daniel, Shell Permission Control, submitted
 EOF
 
 
