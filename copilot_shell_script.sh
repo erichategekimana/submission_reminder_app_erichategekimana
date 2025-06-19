@@ -1,18 +1,21 @@
 #!/usr/bin/env bash
-# prompt user to enter his name
-
+# welcome messages
 echo ""
+sleep 0.5
 echo "Welcome to the copilot!"
+sleep 0.7
 echo "Please, make sure that you've created account before you proceed"
 echo "The name used to create application environment"
 echo "is your user name."
 echo ""
+
+# prompt user to enter his name
 QUIT="q"
 while true; do
 	while true; do
 
 		read -ep "What is your user name: " username
-		if [[ -z "$username" ]]; then
+		if [[ -z "$username" ]]; then # if user input is zero(empty)
 			sleep 0.5
 			echo ""
 			sleep 0.2
@@ -20,7 +23,7 @@ while true; do
 			echo "Please, use valid name (e.g: john)"
 			echo "or use 'q' to exit the program"
 			echo ""
-		elif [[ "$username" == "$QUIT" ]]; then
+		elif [[ "$username" == "$QUIT" ]]; then # if user input is equal to 'q', exit 
                 	echo " "
                 	sleep 0.5
                 	echo "Aborted by the user "
@@ -31,16 +34,16 @@ while true; do
 	done
 
 
-	if [[ ! -d "submission_reminder_$username" ]]; then
+	if [[ ! -d "submission_reminder_$username" ]]; then # check for correctness. if it doesn't march, repeat loop
 		echo ""
 		sleep 0.5
-		echo "User '$username'not found"
+		echo "User '$username' not found"
 		echo "User name, is a name used when you created application environment."
 		echo "Please create your account first using 'create_environment.sh'"
 		echo ""
 		echo "Try again Or type 'q' to exit the program"
 		echo ""
-	elif [[ "$username" == "$QUIT" ]]; then
+	elif [[ "$username" == "$QUIT" ]]; then # use 'q' to exit
         	echo " "
                 sleep 0.5
                 echo "Aborted by the user "
@@ -51,8 +54,9 @@ while true; do
 done
 
 
-# find parent directory of our targeted files and program
+# set variable for parent directory of our targeted files and program
 root_dir="submission_reminder_$username"
+
 echo ""
 sleep 1
 echo "Welcome $username!"
@@ -69,18 +73,20 @@ echo "5. Shell Permission Control"
 while true; do
 	echo " "
 	read -ep "Enter the assignment name: " new_var
-	if [[ -z "$new_var" ]]; then
+	if [[ -z "$new_var" ]]; then # if input is empty
 		sleep 0.2
 		echo " "
 		echo "Error: Invald input!"
 		echo "Please, use valid name (e.g: Introduction To Linux)"
 		echo "Use 'q' to exit the program"
 		sleep 0.2
-	elif [[ "$new_var" == "$QUIT" ]]; then
+	elif [[ "$new_var" == "$QUIT" ]]; then # if input is 'q'
 		echo " "
 		sleep 0.5
 		echo "Aborted by the user "
 		exit 1
+
+		# if input march one of the valid assignment, break this while loop
 	elif [[ "$new_var" == "Shell Navigation" ]]; then
 		break
 	elif [[ "$new_var" == "Shell Basics" ]]; then

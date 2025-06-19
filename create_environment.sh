@@ -39,6 +39,8 @@ done
 sleep 0.3
 echo " "
 echo "$parent_dir created successfully"
+
+
 # this will create subdirectories inside $parent_dir
 echo "Creating subdirectories..."
 sleep 1
@@ -155,7 +157,7 @@ fi
 chmod +x "$parent_dir/startup.sh"
 sleep 0.4
 
-
+# update user what's going on! (very important)
 echo " "
 echo "Environment setup successful completed"
 echo "To run this program, use 'startup.sh' file in $parent_dir"
