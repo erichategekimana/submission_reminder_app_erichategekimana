@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
-# this script will create environment for program that  will be used for reminding students their assignments deadlines
+# This script, will create environment for program that  will be used to remind students their assignments deadlines
 
 
 echo " "
+sleep 0.7
 echo "Welcome to the Submission reminder App!"
-echo "This is going to create a directory structure"
+echo "This is going to create a directory structure and libraries"
 echo "that will be used by application."
 echo " "
 
@@ -135,8 +136,11 @@ sleep 0.4
 
 echo " "
 echo "Environment setup successful completed"
+echo "To run this program, use 'startup.sh' file in $parent_dir"
+echo "Or simply run 'copilot_shell_scrip.sh'"
 TIMESTAMP=$(date +'%Y-%m-%d_%H-%M-%S')
 sleep 0.3
+echo ""
 echo "Done at $TIMESTAMP"
 echo " "
 echo " "
