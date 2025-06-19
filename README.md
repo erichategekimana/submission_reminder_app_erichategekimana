@@ -4,7 +4,7 @@ Hi there!
 It's Good to see you :)
 
 This README file is going to take you through how this project is done and how it works
-so that you can too. you can contribute by modifying files (request permission) or give an ideas of what to improve by commenting or contacting use.
+so that you can understand how it works or contribute too. you can contribute by modifying files (request permission) or give an ideas of what to improve by commenting or contacting use.
 
 lets go...!
 
@@ -149,4 +149,4 @@ Here is why:
 
 I built this to practice shell scripting — reading files, using functions, handling input/output, working with sed, read, source, and more. It helped me improve my skills and understand how scripting can solve real tasks like managing student submissions.
 
-Thank you.
+Thank you!
