@@ -52,9 +52,10 @@ done
 
 
 # find parent directory of our targeted files and program
-root_dir=$(find . -maxdepth 1 -type d -name "submission_reminder_*" | head -n 1)
-
-
+root_dir="submission_reminder_$username"
+echo ""
+echo "Welcome $username!"
+echo ""
 echo "Assignment list:"
 echo "1. Shell Navigation"
 echo "2. Shell Basics"
@@ -117,5 +118,6 @@ echo " "
 sleep 0.6
 
 # start(run) application
-(cd "$root_dir" && ./startup.sh)
+cd "$root_dir" || exit
+./startup.sh
 echo " "

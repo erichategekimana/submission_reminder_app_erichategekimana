@@ -114,15 +114,15 @@ Divine, Shell Navigation, not submitted
 Anissa, Shell Basics, submitted
 Eric, Git, Submitted
 Kenia, Shell Basics, not submitted
-Marvin, Git, Not submitteg
-Mugisha, Git, Not submitted
-Paul, Git, Not submitted
-Michelle, Introduction To Linux, Not submitted
-Ogba, Intriduction To Linux, Not submitted
-Simeon, Shell Permission Control, Not submitted
-Simeon, Git, Not submitted
-Simeon, Shell Navigation, Not submitted
-Benjamin, Shell Navigation, Not submitted
+Marvin, Git, not submitteg
+Mugisha, Git, not submitted
+Paul, Git, not submitted
+Michelle, Introduction To Linux, not submitted
+Ogba, Intriduction To Linux, not submitted
+Simeon, Shell Permission Control, not submitted
+Simeon, Git, not submitted
+Simeon, Shell Navigation, not submitted
+Benjamin, Shell Navigation, not submitted
 Daniel, Shell Permission Control, submitted
 EOF
 
