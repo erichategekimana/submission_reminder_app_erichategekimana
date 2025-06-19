@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-
+# find parent directory of our targeted files and program
 root_dir=$(find . -maxdepth 1 -type d -name "submission_reminder_*" | head -n 1)
 
-# check if user input in not empty or if it is 'q' so that program will exit
+# prompt user for input, check if it is not empty or if it is 'q' so that program will exit
 QUIT="q"
 while true; do
 	echo " "
@@ -25,6 +25,7 @@ while true; do
 done
 echo ""
 echo "$new_var selected"
+
 # check if we have $root_dir/config/config.env file
 if [[ ! -f "$root_dir/config/config.env" ]]; then
 	echo ""
@@ -41,6 +42,6 @@ sed -i "2s|.*|ASSIGNMENT=\"$new_var\"|" "$root_dir/config/config.env"
 echo " "
 sleep 0.6
 
-
+# start(run) application
 (cd "$root_dir" && ./startup.sh)
 echo " "
