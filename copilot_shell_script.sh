@@ -11,7 +11,7 @@ QUIT="q"
 while true; do
 	while true; do
 
-		read -rp "What is your user name: " username
+		read -ep "What is your user name: " username
 		if [[ -z "$username" ]]; then
 			sleep 0.5
 			echo ""
@@ -54,9 +54,10 @@ done
 # find parent directory of our targeted files and program
 root_dir="submission_reminder_$username"
 echo ""
+sleep 1
 echo "Welcome $username!"
 echo ""
-echo "Assignment list:"
+echo "Assignment list: "
 echo "1. Shell Navigation"
 echo "2. Shell Basics"
 echo "3. Git"
@@ -67,7 +68,7 @@ echo "5. Shell Permission Control"
 # prompt user for input, check if it is not empty or if it is 'q' so that program will exit
 while true; do
 	echo " "
-	read -rp "Enter the assignment name: " new_var
+	read -ep "Enter the assignment name: " new_var
 	if [[ -z "$new_var" ]]; then
 		sleep 0.2
 		echo " "
@@ -91,6 +92,7 @@ while true; do
 	 elif [[ "$new_var" == "Shell Permission Control" ]]; then
                 break
 	else
+		sleep 0.5
 		echo "Assignment '$new_var' not found. Try again"
 		echo "Please, use the list provided to navigate valid assignment name."
 		echo "or use 'q' to exit the program"
@@ -98,6 +100,7 @@ while true; do
 		echo "Note: This application is case sensitive!"
 	fi
 done
+sleep 0.7
 echo ""
 echo "$new_var selected"
 
@@ -112,7 +115,7 @@ if [[ ! -f "$root_dir/config/config.env" ]]; then
 	echo ""
 	exit 2
 fi
-# modify the current name in $root_dirconfig/config.env on the 'ASSIGNMENT' value
+# modify the current name in $root_dir/config/config.env on the 'ASSIGNMENT' value
 sed -i "2s|.*|ASSIGNMENT=\"$new_var\"|" "$root_dir/config/config.env"
 echo " "
 sleep 0.6

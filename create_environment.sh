@@ -13,7 +13,7 @@ echo " "
 while true; do
 
 	while true; do
-		read -rp "Enter your first name: " usrname
+		read -ep "Enter your first name: " usrname
 		if [[ -z "$usrname" ]]; then
 			sleep 0.2
 			echo " "
