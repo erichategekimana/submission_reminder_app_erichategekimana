@@ -13,7 +13,7 @@ echo " "
 
 # this block of code, prompting a user to enter name and use it to create directory named "submission_reminder_{name} and if name is arleady exist, it will print error message, and ask him agin
 while true; do
-	read -p "Enter your name: " usrname
+	read -rp "Enter your name: " usrname
 	if [[ ! -d "submission_reminder_$usrname" ]]; then
 		parent_dir="submission_reminder_$usrname"
 		break
@@ -25,15 +25,20 @@ while true; do
 done
 
 
-
+echo " "
 echo "$parent_dir created successfully"
 # this will create subdirectories inside $parent_dir
-echo "Creatin sudirectories..."
+echo "Creating subdirectories..."
+sleep 1
 mkdir -p "$parent_dir"/{app,modules,asset,config}
 echo "Subdirectories successful created"
 
 # heredoc(here document) to create a file named "reminder.sh" and append scripts text onto it immediatery
 echo "creating application files and libraries..."
+sleep 3
+
+
+
 cat << 'EOF' > "$parent_dir/app/reminder.sh"
 #!/bin/bash
 
@@ -114,7 +119,7 @@ fi
 
 # give excution permission to "startup.sh"
 chmod +x "$parent_dir/startup.sh"
-
+sleep 0.4
 
 
 echo " "
